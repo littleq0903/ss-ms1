@@ -12,7 +12,6 @@ HEROKU_APPS = (
     'gunicorn',
 )
 
-DEBUG = False
 
 
 INSTALLED_APPS += HEROKU_APPS
