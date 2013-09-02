@@ -30,6 +30,7 @@ def all_course_page(request, depart_id=''):
 def course_detail(request, course_id):
     try:
         m_course = CourseData.objects.get(uuid=course_id)
+        m_course.click_one()
     except CourseData.DoesNotExist:
         raise Http404
     else:
