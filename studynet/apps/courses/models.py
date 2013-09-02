@@ -6,8 +6,8 @@ from departments.models import Department
 class CourseDataManager(models.Manager):
     def get_by_click(self, depart_id, semester="102/1"):
         if depart_id == 'all':
-            return sorted(super(CourseDataManager, self).all()[0:100], key=lambda x:x.click, reverse=True)
-        return sorted(super(CourseDataManager, self).filter(department=depart_id, fs_semester=semester), key=lambda x:x.click, reverse=True)
+            return sorted(super(CourseDataManager, self).filter(fs_semester=semester)[0:100], key=lambda x:x.click, reverse=True)
+        return sorted(super(CourseDataManager, self).filter(department=depart_id), key=lambda x:x.click, reverse=True)
 
 
 class CourseData(models.Model):
