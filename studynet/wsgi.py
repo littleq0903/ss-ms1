@@ -37,8 +37,14 @@ sys.path.insert(0, lib_path)
 
 # Settings switching
 if not os.environ.has_key('HEROKU'): os.environ['HEROKU'] = 'false'
+if not os.environ.has_key('PLSMLAB'): os.environ['PLSMLAB'] = 'false'
 if os.environ['HEROKU'] == "true":
-    settings_location = "studynet.configs.heroku.settings"
+    if os.environ['HEROKU_VERSION'] == "staging":
+        settings_location = "studynet.configs.heroku_staging.settings"
+    elif os.environ['HEROKU_VERSION'] == "production":
+        settings_location = "studynet.configs.heroku.settings"
+elif os.environ['PLSMLAB'] == 'true':
+    settings_location = "studynet.configs.plsmlab.settings"
 else:
     settings_location = "studynet.configs.common.settings"
 print "Using setting: %s" % settings_location
