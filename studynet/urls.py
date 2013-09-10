@@ -28,7 +28,6 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    (r'^accounts/', include('userena.urls')),
 )
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += patterns('',
