@@ -15,10 +15,13 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-        'default': {
-        'ENGINE': 'django_mongodb_engine',
-        'NAME': 'socialstudy',
-        'HOST': 'localhost'
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join('db', 'default.db'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 

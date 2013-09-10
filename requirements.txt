@@ -15,3 +15,4 @@ tornado
 PIL
 django-facebook
 django-userena
+mock
