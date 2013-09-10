@@ -98,12 +98,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'django_facebook.context_processors.facebook',
 )
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django_facebook.auth_backends.FacebookBackend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -141,7 +139,6 @@ INSTALLED_APPS = (
 )
 
 LIB_APPS = (
-    'django_facebook',
     'easy_thumbnails',
 )
 
@@ -189,11 +186,9 @@ INSTALLED_APPS += SITE_APPS
 
 
 
-AUTH_PROFILE_MODULE = 'user_profile.UserProfile'
 FACEBOOK_STORE_LIKES = True
 FACEBOOK_STORE_FRIENDS = True
 FACEBOOK_LOGIN_DEFAULT_REDIRECT = '/facebook/connect/'
-#FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
 
 COMPRESS_ENABLED = True
 COMPRESS_REBUILD_TIMEOUT = 30    
@@ -211,7 +206,6 @@ COMPRESS_PRECOMPILERS = (
 # Userena
 MODE = 'userena'
 
-FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
 
 
 '''
@@ -220,7 +214,6 @@ http://docs.django-userena.org/en/latest/installation.html#installing-django-use
 '''
 
 AUTHENTICATION_BACKENDS = (
-        'django_facebook.auth_backends.FacebookBackend',
         'userena.backends.UserenaAuthenticationBackend',
         'django.contrib.auth.backends.ModelBackend',
         )
