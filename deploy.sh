@@ -1,9 +1,9 @@
 #!/bin/bash
 # deploy script
-if [ $1 == "staging" ]
+if [ "$1" = "staging" ]
 then
     git push heroku-dev dev:master
-else if [ $1 == "production" ]
+elif [ "$1" = "production" ]
 then
     git push heroku dev:master
 else
