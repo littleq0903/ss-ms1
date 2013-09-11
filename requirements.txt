@@ -13,7 +13,7 @@ wsgiref==0.1.2
 django_compressor
 simplejson
 tornado
-PIL
+Pillow
 django-facebook
 django-userena
 mock
