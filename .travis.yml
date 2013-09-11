@@ -2,10 +2,7 @@ language: python
 python:
     - "2.7"
 before_install:
-    - sudo apt-get install libjpeg8 libjpeg8-dev libfreetype6 libfreetype6-dev zlib1g-dev tree
-    - sudo ln -s /usr/lib/`uname -i`-linux-gnu/libjpeg.so.8 ~/virtualenv/python2.7/lib/
-    - sudo ln -s /usr/lib/`uname -i`-linux-gnu/libfreetype.so ~/virtualenv/python2.7/lib/
-    - sudo ln -s /usr/lib/`uname -i`-linux-gnu/libz.so ~/virtualenv/python2.7/lib/
+    - sudo apt-get install libjpeg8 libjpeg8-dev libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev tree
 install: pip install -r requirements.txt --use-mirrors
 script: python manage.py test
 
