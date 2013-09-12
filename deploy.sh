@@ -9,10 +9,10 @@ then
     echo "Set heroku, heroku-dev in your git remotes."
 elif [ "$1" = "staging" ]
 then
-    git push heroku-dev dev:master
+    git push heroku-dev master
 elif [ "$1" = "production" ]
 then
-    git push heroku dev:master
+    git push heroku production:master
 else
     echo "Usage: ./deploy.sh (production|staging)"
 fi
