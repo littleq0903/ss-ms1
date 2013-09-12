@@ -15,10 +15,13 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-        'default': {
-        'ENGINE': 'django_mongodb_engine',
-        'NAME': 'socialstudy',
-        'HOST': 'localhost'
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join('db', 'default.db'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -95,12 +98,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'django_facebook.context_processors.facebook',
 )
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django_facebook.auth_backends.FacebookBackend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,7 +139,6 @@ INSTALLED_APPS = (
 )
 
 LIB_APPS = (
-    'django_facebook',
     'easy_thumbnails',
 )
 
@@ -185,15 +185,10 @@ INSTALLED_APPS += SITE_APPS
 #}
 
 
-# TODO: update facebook api tokens
-FACEBOOK_APP_ID = '157074917769562'
-FACEBOOK_APP_SECRET = '9e98d91b0a7c50189a47cdfe5a6c88f3'
 
-AUTH_PROFILE_MODULE = 'user_profile.UserProfile'
 FACEBOOK_STORE_LIKES = True
 FACEBOOK_STORE_FRIENDS = True
 FACEBOOK_LOGIN_DEFAULT_REDIRECT = '/facebook/connect/'
-#FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
 
 COMPRESS_ENABLED = True
 COMPRESS_REBUILD_TIMEOUT = 30    
@@ -207,37 +202,6 @@ COMPRESS_PRECOMPILERS = (
     ('application/coco', 'coco -cbp'),
     ('stylesheet/less', 'lessc {infile} {outfile}'),  
 )
-
-# Userena
-MODE = 'userena'
-
-FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
-
-
-'''
-Settings based on these docs
-http://docs.django-userena.org/en/latest/installation.html#installing-django-userena
-'''
-
-AUTHENTICATION_BACKENDS = (
-        'django_facebook.auth_backends.FacebookBackend',
-        'userena.backends.UserenaAuthenticationBackend',
-        'django.contrib.auth.backends.ModelBackend',
-        )
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
-ANONYMOUS_USER_ID = -1
-
-INSTALLED_APPS += (
-        'userena',
-        'guardian',
-        )
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 

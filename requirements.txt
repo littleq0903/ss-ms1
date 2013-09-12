@@ -1,9 +1,11 @@
 #distribute==0.6.27
 
 # Heroku
+django==1.5.2
 dj-database-url==0.2.1
 gunicorn==0.14.6
 psycopg2==2.4.5
+django-toolbelt
 
 wsgiref==0.1.2
 
@@ -11,9 +13,8 @@ wsgiref==0.1.2
 django_compressor
 simplejson
 tornado
-pymongo==2.1.1
-django-mongodb-engine
-djangotoolbox
-PIL
+Pillow
 django-facebook
 django-userena
+mock
+xmltodict
