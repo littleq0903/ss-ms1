@@ -3,11 +3,11 @@ python:
     - "2.7"
 before_install:
     - sudo apt-get install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev tcl8.5-dev tk8.5-dev
+    - sudo apt-get install firefox
     - "export DISPLAY=:99.0"
     - "sh -e /etc/init.d/xvfb start"
 install:
     - pip install -r requirements.txt --use-mirrors
-    - pip install firefox selenium
 script: 
     - python manage.py test
     - git clone https://github.com/snowmantw/ss-ms1-uitest && python ss-ms1-uitest/tests/basic_flows.py 
